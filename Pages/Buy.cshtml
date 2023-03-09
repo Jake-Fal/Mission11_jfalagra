@@ -1,0 +1,42 @@
+﻿@page
+@model Mission09_jfalagra.Pages.BuyModel
+@{
+}
+<h2>Your Cart</h2>
+<!--Create a table-->
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <!--Loop through passed books to show current cart status-->
+        @foreach (var i in Model.basket.Items)
+        {
+            <tr>
+                <td>@i.Book.Title</td>
+                <td>@i.Quantity</td>
+                <td>@i.Book.Price</td>
+                <td>@(i.Quantity * i.Book.Price)</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">Total: </td>
+            <td>@Model.basket.CalculateTotal().ToString("c")</td>
+        </tr>
+    </tfoot>
+</table>
+<div>
+    <!-->
+        Used btn-Success as new bootstrap
+        Created button to checkout more books
+    <!-->
+    <a class="btn btn-success" href="@Model.ReturnUrl">Back to Da Bookstore</a>
+</div>
