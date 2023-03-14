@@ -20,7 +20,7 @@
         <!--Form to put book in cart-->
         <form method="post" asp-page="/Buy">
             <input type="hidden" asp-for="@Model.BookId"/>
-            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathandQuery()"
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathandQuery()" />
             <span class="card-text">
                 <button type="submit" class="btn btn-success btn-sm float-end">Add to Cart</button>
             </span>
